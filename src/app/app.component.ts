@@ -1,5 +1,19 @@
 import { Component } from '@angular/core';
 
+export class Astronaut {
+  craft: string;
+  name: string;
+}
+export class NextPasses{
+  duration: number;
+  risetime: number;
+}
+export class CurrentLocation {
+  longitude: string;
+  latitude: string;
+  timestamp: number;
+  message: string;
+}
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
