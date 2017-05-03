@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## About
 
-I.S.S. watcher has three functions: An iss live tracker, an iss next-passes generator, and a list of the people currently on the iss. It uses the [Open notify] (http://open-notify.org/Open-Notify-API/) api.
+I.S.S. watcher has three functions: An iss live tracker, an iss next-passes generator, and a list of the people currently on the iss. It uses the [Open notify](http://open-notify.org/Open-Notify-API/) api.
 
 ## Development server
 
