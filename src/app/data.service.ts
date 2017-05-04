@@ -12,15 +12,22 @@ export class DataService {
   private peopleUrl = 'http://api.open-notify.org/astros.json';
   // URL to get ISS passes from lat/long
   private passesUrl = 'http://api.open-notify.org/iss-pass.json?lat=45.0&lon=-122.3&alt=20&callback=JSONP_CALLBACK';
+  // URL to get ISS passes from lat/long
+  private customPassesUrl = 'http://api.open-notify.org/iss-pass.json?';
   // URL to get current ISS location (overhead)
   private locationUrl = 'http://api.open-notify.org/iss-now.json';
-  
+
   constructor(private http: Http, private jsonp: Jsonp) { }
-  
+
   getPeople(): Observable<Astronaut[]> {
     return this.http.get(this.peopleUrl)
                     .map((res:Response) => res.json().people)
                     .catch(this.handleError);
+  }
+  getCustomPasses(lat, lon): Observable<NextPasses[]> {
+    return this.jsonp.get(this.customPassesUrl + `lat=${lat}&lon=${lon}&alt=20&callback=JSONP_CALLBACK`)
+               .map((res:Response) => res.json().response)
+               .catch(this.handleError);
   }
   getPasses(): Observable<NextPasses[]> {
     return this.jsonp.get(this.passesUrl)
