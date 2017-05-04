@@ -9,10 +9,9 @@ export class NextPasses{
   risetime: number;
 }
 export class CurrentLocation {
-  longitude: string;
-  latitude: string;
-  timestamp: number;
-  message: string;
+    iss_position: {latitude: string, longitude: string};
+    timestamp: number;
+    message: string;
 }
 @Component({
   selector: 'app-root',
@@ -20,5 +19,5 @@ export class CurrentLocation {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  title = 'ISS Stuff!';
 }
