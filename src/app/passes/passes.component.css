@@ -1,0 +1,14 @@
+table {
+  border: 1px grey solid;
+  margin: 10px auto;
+}
+th {
+  border-bottom: 2px black solid;
+}
+td {
+  background-color: #ddd;
+  color: #333;
+}
+.duration {
+  text-align: center;
+}
