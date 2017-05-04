@@ -8,6 +8,10 @@ export class NextPasses{
   duration: number;
   risetime: number;
 }
+export class ParsedPasses{
+  duration: number;
+  risetime: Date;
+}
 export class CurrentLocation {
     iss_position: {latitude: string, longitude: string};
     timestamp: number;

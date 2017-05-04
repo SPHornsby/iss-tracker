@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
-import { NextPasses } from '../app.component';
+import { ParsedPasses } from '../app.component';
 
 @Component({
   selector: 'app-passes',
@@ -10,18 +10,24 @@ import { NextPasses } from '../app.component';
 export class PassesComponent implements OnInit {
   
   errorMessage: string;
-  passes: NextPasses[];
-  
+  passes: ParsedPasses[];
+  duration: number;
+  timestamp: Date;
   constructor(private dataService:DataService) { }
 
   ngOnInit() {
-    this.getAstronauts();
+    this.getPasses();
   }
 
-  getAstronauts() {
+  getPasses() {
     this.dataService.getPasses()
                     .subscribe(
-                      passes => this.passes = passes,
+                      passes => this.passes = passes.map(pass => {
+                        let uts = pass.risetime;
+                        
+                        let date = new Date(uts * 1000);
+                        return {duration: pass.duration, risetime: date};
+                      }),
                       error => this.errorMessage = <any>error
                     )
   }
