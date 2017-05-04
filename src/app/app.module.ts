@@ -5,10 +5,16 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { DataService } from './data.service';
+import { AstronautComponent } from './astronaut/astronaut.component';
+import { PassesComponent } from './passes/passes.component';
+import { CurrentComponent } from './current/current.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AstronautComponent,
+    PassesComponent,
+    CurrentComponent
   ],
   imports: [
     BrowserModule,
