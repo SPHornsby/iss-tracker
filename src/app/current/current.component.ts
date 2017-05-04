@@ -19,8 +19,17 @@ export class CurrentComponent implements OnInit {
 
   ngOnInit() {
     this.getCurrent();
+    this.repeat();
   }
+  intervalId = 0;
+  clearTimer() { clearInterval(this.intervalId); }
 
+  private repeat() {
+    this.clearTimer();
+    this.intervalId = window.setInterval(() => {
+      this.getCurrent();
+    }, 5000)
+  }
   getCurrent() {
     this.dataService.getCurrentPosition()
                     .subscribe(
