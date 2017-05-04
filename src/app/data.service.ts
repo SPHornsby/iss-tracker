@@ -18,8 +18,19 @@ export class DataService {
                     .map(this.extractPeople)
                     .catch(this.handleError);
   }
+  getPasses(): Observable<NextPasses[]> {
+    return this.http.get(this.passesUrl)
+               .map(this.extractPasses)
+               .catch(this.handleError);
+  }
+  getCurrentPosition(): Observable<CurrentLocation> {
+    return this.http.get(this.locationUrl)
+               .map(this.extractCurrent)
+               .catch(this.handleError);
+  }
   private extractPeople(res: Response) {  
     let body = res.json();
+    console.log(body);
     return body.people || { };
   }
   private extractPasses(res: Response) {  
@@ -28,6 +39,7 @@ export class DataService {
   }
   private extractCurrent(res: Response) {  
     let body = res.json();
+    console.log(body);
     return body || { };
   }
   private handleError (error: Response | any) {
