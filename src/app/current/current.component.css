@@ -1,0 +1,21 @@
+/*table {
+  margin: 0 auto;
+}*/
+table {
+  border: 1px grey solid;
+  margin: 10px auto;
+}
+th {
+  border-bottom: 2px black solid;
+}
+td {
+  background-color: #ddd;
+  color: #333;
+}
+.update-text {
+  font-size: .7em;
+}
+h2 {
+  max-width: 75%;
+  margin: 5px auto;
+}
