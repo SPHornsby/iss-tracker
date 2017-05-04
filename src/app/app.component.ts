@@ -23,5 +23,5 @@ export class CurrentLocation {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ISS Stuff!';
+  title = 'Sky Watcher';
 }

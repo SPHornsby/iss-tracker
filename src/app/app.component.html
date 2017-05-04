@@ -1,7 +1,6 @@
-<h1>
-  {{title}}
-</h1>
-
-<app-astronaut></app-astronaut>
-<app-passes></app-passes>
-<app-current></app-current>
+  <nav class="navbar">
+    <a routerLink="/main" routerLinkActive="active">I.S.S.</a>
+    <a routerLink="/sun" routerLinkActive="active">Sunrise/Sunset</a>
+  </nav>
+  <h1>{{title}}</h1>
+  <router-outlet></router-outlet>
