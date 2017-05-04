@@ -13,3 +13,28 @@ h1, h2 {
 h1 {
   color: #ffa055
 }
+.btn {
+	display: inline-block;
+	color: #eee;
+	background-color: #cc8055;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 12px;
+	padding: 2px 15px;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border: 1px solid rgba(0,0,0,0.3);
+	border-bottom-width: 2px;
+  outline: none;
+}
+
+	.btn:hover {
+		background-color: #ffa055;
+		border-color: rgba(0,0,0,0.5);
+	}
+	
+	.btn:active {
+		background-color: #c85;
+		border-color: rgba(0,0,0,0.9);
+	}

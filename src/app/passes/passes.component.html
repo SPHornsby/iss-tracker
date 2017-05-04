@@ -1,12 +1,12 @@
-<h2>Upcoming ISS passes for {{latitude}}, {{longitude}}</h2>
-<div *ngIf="errorMessge; then tmpl2 else tmpl1"></div>
+<h2>Upcoming ISS passes for <span class="bright">{{latitude}}, {{longitude}}</span></h2>
+<div *ngIf="errorMessage; then tmpl2 else tmpl1"></div>
 
 <ng-template #tmpl1>
   <label for="lat">Latitude</label>
   <input name="lat" #lat />
   <label for="lon">Longitude</label>
   <input name="lon" #lon />
-  <button (click)="setLocation(lat.value, lon.value)">Set location</button>
+  <button class="btn" (click)="setLocation(lat.value, lon.value)">Set location</button>
   <table >
     <tr>
       <th>Rise Time</th>
@@ -17,7 +17,7 @@
       <td class="duration">{{pass.duration}}</td>
     </tr>
   </table>
-  <button id="refresh-button" (click)="refreshPasses()">Refresh</button>
+  <button id="refresh-button" class="btn" (click)="refreshPasses()">Refresh</button>
 </ng-template>
 <ng-template #tmpl2>
   <p>{{errorMessge}}</p>
