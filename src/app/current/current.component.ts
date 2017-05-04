@@ -14,7 +14,7 @@ export class CurrentComponent implements OnInit {
   latitude: string;
   longitude: string;
   timestamp: Date;
-  
+
   constructor(private dataService:DataService) { }
 
   ngOnInit() {
@@ -25,7 +25,6 @@ export class CurrentComponent implements OnInit {
     this.dataService.getCurrentPosition()
                     .subscribe(
                       (currentLocation) => {
-                        console.log("cl",currentLocation);
                         this.longitude = currentLocation.iss_position.longitude;
                         this.latitude = currentLocation.iss_position.latitude;
                         this.timestamp = new Date(currentLocation.timestamp * 1000);
