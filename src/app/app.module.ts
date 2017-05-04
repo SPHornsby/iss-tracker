@@ -15,6 +15,7 @@ import { SunTimesComponent } from './sun-times/sun-times.component';
 const appRoutes: Routes = [
   { path: 'main', component: MainComponent },
   { path: 'sun', component: SunTimesComponent },
+  { path: '',   redirectTo: '/main', pathMatch: 'full' },
 ];
 
 @NgModule({
