@@ -2,11 +2,27 @@
 <div *ngIf="errorMessage; then tmpl2 else tmpl1"></div>
 
 <ng-template #tmpl1>
-  <label for="lat">Latitude</label>
-  <input name="lat" #lat />
-  <label for="lon">Longitude</label>
-  <input name="lon" #lon />
-  <button class="btn" (click)="setLocation(lat.value, lon.value)">Set location</button>
+<!-- Form with light validation  -->
+<div class="container coord-form">
+    <p>Enter your co-ordinates to get a list of upcoming passes.</p>
+    <form (ngSubmit)="onSubmit(model.latitude, model.longitude); coordForm.reset()" #coordForm="ngForm">
+      <div class="form-group">
+        <label for="latitude">Latitude</label>
+        <input type="text" class="form-control" id="latitude" required [(ngModel)]="model.latitude" name="latitude" #latitude="ngModel">
+        <div [hidden]="latitude.valid || latitude.pristine" class="alert alert-danger">
+          Latitude is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="longitude">Longitude</label>
+        <input type="text" class="form-control" id="longitude" required [(ngModel)]="model.longitude" name="longitude" #longitude="ngModel">
+        <div [hidden]="longitude.valid || longitude.pristine" class="alert alert-danger">
+          Longitude is required
+        </div>
+      </div>
+      <button type="submit" class="bttn " [disabled]="!coordForm.form.valid" >Submit</button>
+    </form>
+</div>
   <table >
     <tr>
       <th>Rise Time</th>
@@ -17,7 +33,7 @@
       <td class="duration">{{pass.duration}}</td>
     </tr>
   </table>
-  <button id="refresh-button" class="btn" (click)="refreshPasses()">Refresh</button>
+  <button id="refresh-button" class="bttn" (click)="refreshPasses()">Refresh</button>
 </ng-template>
 <ng-template #tmpl2>
   <p>{{errorMessge}}</p>

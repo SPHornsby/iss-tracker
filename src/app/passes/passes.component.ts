@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { ParsedPasses } from '../app.component';
+import { Coords }    from '../shared/coords';
 
 @Component({
   selector: 'app-passes',
@@ -33,7 +34,6 @@ export class PassesComponent implements OnInit {
                   )
   }
   setLocation(lat, lon) {
-    console.log(lat, lon);
     this.latitude = lat;
     this.longitude = lon;
     this.getPasses();
@@ -41,5 +41,14 @@ export class PassesComponent implements OnInit {
   refreshPasses() {
     console.log('refreshing passes');
     this.getPasses();
+  }
+  // Form
+  model = new Coords(35, -117);
+  
+  submitted = false;
+
+  onSubmit(lat, lon) {
+    this.submitted = true; 
+    this.setLocation(lat, lon);
   }
 }
