@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { SunTimes } from '../app.component';
+import { Coords }    from '../shared/coords';
 
 @Component({
   selector: 'app-sun-times',
@@ -37,5 +38,18 @@ export class SunTimesComponent implements OnInit {
     this.sunrise = new Date(Date.parse(sunTimes.sunrise)).toString();
     this.sunset = new Date(Date.parse(sunTimes.sunset)).toString();
     this.dayLength = sunTimes.day_length;
+  }
+  // Form
+  model = new Coords(35, -117);
+  
+  submitted = false;
+
+  onSubmit(lat, lon) {
+    this.submitted = true; 
+    this.dataService.getSunTimes(lat ,lon)
+                      .subscribe(
+                      sunTimes => this.mapToValues(sunTimes),
+                      error => this.errorMessage = <any>error
+                    )
   }
 }
