@@ -7,10 +7,16 @@ table {
 }
 th {
   border-bottom: 2px black solid;
+  text-align: center;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 td {
   background-color: #ddd;
   color: #333;
+  border: 1px #222 solid;
+  padding-left: 2px;
+  padding-right: 2px;
 }
 .update-text {
   font-size: .7em;

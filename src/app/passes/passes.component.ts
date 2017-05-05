@@ -39,7 +39,6 @@ export class PassesComponent implements OnInit {
     this.getPasses();
   }
   refreshPasses() {
-    console.log('refreshing passes');
     this.getPasses();
   }
   // Form
