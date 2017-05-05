@@ -17,6 +17,13 @@ export class CurrentLocation {
     timestamp: number;
     message: string;
 }
+export class SunTimes {
+  sunrise: string;
+  sunset: string;
+  day_length: string;
+  astronomical_twilight_begin: string;
+  astronomical_twilight_end: string;
+}
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
-import { Astronaut, NextPasses, CurrentLocation } from './app.component';
+import { Astronaut, NextPasses, CurrentLocation, SunTimes } from './app.component';
 
 @Injectable()
 export class DataService {
@@ -16,7 +16,8 @@ export class DataService {
   private customPassesUrl = 'http://api.open-notify.org/iss-pass.json?';
   // URL to get current ISS location (overhead)
   private locationUrl = 'http://api.open-notify.org/iss-now.json';
-
+  // URL to get sunrise/sunset times
+  private sunUrl = 'https://api.sunrise-sunset.org/json?lat=45.000&lng=-122&date=today';
   constructor(private http: Http, private jsonp: Jsonp) { }
 
   getPeople(): Observable<Astronaut[]> {
@@ -29,14 +30,14 @@ export class DataService {
                .map((res:Response) => res.json().response)
                .catch(this.handleError);
   }
-  getPasses(): Observable<NextPasses[]> {
-    return this.jsonp.get(this.passesUrl)
-               .map((res:Response) => res.json().response)
-               .catch(this.handleError);
-  }
   getCurrentPosition(): Observable<CurrentLocation> {
     return this.http.get(this.locationUrl)
                .map((res:Response) => res.json())
+               .catch(this.handleError);
+  }
+  getSunTimes(lat, lon): Observable<SunTimes> {
+    return this.http.get(this.sunUrl + `lat=${lat}&lng=${lon}&date=today&formatted=0`)
+               .map((res:Response) => res.json().results)
                .catch(this.handleError);
   }
   private handleError (error: Response | any) {
