@@ -1,18 +1,3 @@
-/*.content {
-  margin-left: 15px;
-  margin-right: 15px;
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-}
-app-current {
-  grid-column: 2/span 1;
-}
-app-astronaut {
-  grid-column: 2/span 1;
-}
-app-passes {
-  grid-column: 2/span 1;
-}*/
 .navbar {
   background-color: #ccc;
   width: 100%;
