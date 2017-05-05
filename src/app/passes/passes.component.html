@@ -36,5 +36,34 @@
   <button id="refresh-button" class="bttn" (click)="refreshPasses()">Refresh</button>
 </ng-template>
 <ng-template #tmpl2>
-  <p>{{errorMessge}}</p>
+<div class="container coord-form">
+    <p>There was an error. Please re-enter your co-ordinates to get a list of upcoming passes.</p>
+    <form (ngSubmit)="clearError(); onSubmit(model.latitude, model.longitude); coordForm.reset()" #coordForm="ngForm">
+      <div class="form-group">
+        <label for="latitude">Latitude</label>
+        <input type="text" class="form-control" id="latitude" required [(ngModel)]="model.latitude" name="latitude" #latitude="ngModel">
+        <div [hidden]="latitude.valid || latitude.pristine" class="alert alert-danger">
+          Latitude is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="longitude">Longitude</label>
+        <input type="text" class="form-control" id="longitude" required [(ngModel)]="model.longitude" name="longitude" #longitude="ngModel">
+        <div [hidden]="longitude.valid || longitude.pristine" class="alert alert-danger">
+          Longitude is required
+        </div>
+      </div>
+      <button type="submit" class="bttn " [disabled]="!coordForm.form.valid" >Submit</button>
+    </form>
+</div>
+  <table >
+    <tr>
+      <th>Rise Time</th>
+      <th>Duration (in seconds)</th>
+    </tr>
+    <tr *ngFor="let pass of passes">
+      <td>{{pass.risetime}}</td>
+      <td class="duration">{{pass.duration}}</td>
+    </tr>
+  </table>
 </ng-template>

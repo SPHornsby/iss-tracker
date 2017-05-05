@@ -1,13 +1,13 @@
 ul {
   list-style: none;
 }
-li a {
+p a {
   text-decoration: none;
 }
-li a:visited {
+p a:visited {
   color: #ccc;
 }
-li a:hover {
+p a:hover {
   color: #333;
   background-color: #ccc;
 }

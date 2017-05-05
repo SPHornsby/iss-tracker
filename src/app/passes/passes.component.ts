@@ -50,4 +50,7 @@ export class PassesComponent implements OnInit {
     this.submitted = true; 
     this.setLocation(lat, lon);
   }
+  clearError() {
+    this.errorMessage = "";
+  }
 }
