@@ -13,7 +13,7 @@ h1, h2 {
 h1 {
   color: #ffa055
 }
-.btn {
+.bttn {
 	display: inline-block;
 	color: #eee;
 	background-color: #cc8055;
@@ -29,12 +29,12 @@ h1 {
   outline: none;
 }
 
-	.btn:hover {
+	.bttn:hover {
 		background-color: #ffa055;
 		border-color: rgba(0,0,0,0.5);
 	}
 	
-	.btn:active {
+	.bttn:active {
 		background-color: #c85;
 		border-color: rgba(0,0,0,0.9);
 	}
