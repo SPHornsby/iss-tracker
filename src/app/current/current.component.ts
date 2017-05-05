@@ -21,6 +21,9 @@ export class CurrentComponent implements OnInit {
     this.getCurrent();
     this.repeat();
   }
+  ngOnDestroy() {
+    this.clearTimer();
+  }
   intervalId = 0;
   clearTimer() { clearInterval(this.intervalId); }
 
