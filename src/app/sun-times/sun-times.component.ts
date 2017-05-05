@@ -29,7 +29,6 @@ export class SunTimesComponent implements OnInit {
                     )
   }
   setLocation(lat, lon) {
-    console.log(lat, lon);
     this.latitude = lat;
     this.longitude = lon;
     this.getSunTimes();
