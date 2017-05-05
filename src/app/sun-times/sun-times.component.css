@@ -1,0 +1,16 @@
+.highlight {
+  color: orange;
+}
+p a {
+  text-decoration: none;
+  color: orange;
+}
+p a:visited {
+  color: orange;
+}
+.tiny {
+  font-family: Courier New, Courier, monospace;
+  font-weight: bold;
+  color: #555;
+  font-size: .8em;
+}

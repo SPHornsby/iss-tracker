@@ -1,3 +1,17 @@
-<p>
-  sun-times works!
-</p>
+<h2>Find your sunrise and sunset times<span class="highlight">*</span></h2>
+
+<label for="lat">Latitude</label>
+<input name="lat" #lat />
+<label for="lon">Longitude</label>
+<input name="lon" #lon />
+<button class="btn" (click)="setLocation(lat.value, lon.value)">Set location</button>
+<div *ngIf="sunrise; then tmpl1 else tmpl2"></div>
+<ng-template #tmpl1>
+  <p>Sunrise: {{sunrise}}</p>
+  <p>Sunset: {{sunset}}</p>
+</ng-template>
+<ng-template #tmpl2>
+  <p>Enter a lat/long to find your times!</p>
+</ng-template>
+<p class="tiny"><span class="highlight">*</span> Calculated using <a href="https://sunrise-sunset.org">sunrise-sunset.org</a></p>
+<p>{{errorMessage}}</p>
